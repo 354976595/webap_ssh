@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - baoxiu@localhost" uuid="449e5fa4-2d7a-4ae6-84c8-df3310ae9a0a">
+    <database-info product="MySQL" version="5.5.40-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.44 ( Revision: b3cda4f864902ffdde495b9df93937c3e20009be )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="baoxiu"/>
+    <table name="bus" schema="" catalog="baoxiu" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="company" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="bus_line" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="bus_no" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="license" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="host_version" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="bus_no" unique="true" columns="bus_no"/>
+    </table>
+    <table name="desc count" schema="" catalog="baoxiu" type="VIEW">
+      <column name="cmp" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cd" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6XCiMKGw6XChcKsw6XCj8K4"/>
+      <column name="line" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="fire_obj" schema="" catalog="baoxiu" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="allTroubleDetails" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="busCode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="checkDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="checkPerson" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cjDealDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="companyName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dealDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="dealInfo" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="formMark" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="garage" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="imgAddress" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="insulatedFast" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lineName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="paizhaoCode" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="remark" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sendPerson" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="subCompanyName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="hibernate_sequence" schema="" catalog="baoxiu" type="TABLE">
+      <column name="next_val" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+    </table>
+    <table name="imp_bus_info" schema="" catalog="baoxiu" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="bus_code" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" remarks="w6jCvcKmw6jCvsKGw6jCh8Kqw6fCvMKWw6XCj8K3"/>
+      <column name="old_bus_code" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6bCl8Knw6jCvcKmw6jCvsKGw6jCh8Kqw6fCvMKWw6XCj8K3"/>
+      <column name="bus_model_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="w6jCvcKmw6XCnsKLSUQ="/>
+      <column name="bus_model_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6jCvcKmw6XCnsKLw6jCh8Kqw6fCvMKWw6XCj8K3"/>
+      <column name="short_bus_model_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="licence_plate" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6jCvcKmw6jCvsKGw6fCicKMw6fChcKn"/>
+      <column name="mileage" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5" remarks="w6jCocKMw6nCqcK2w6nCh8KMw6fCqMKL"/>
+      <column name="registration_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6TCuMKKw6fCicKMw6bCl8Klw6bCnMKf"/>
+      <column name="enable_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6XCkMKvw6fClMKow6bCl8Klw6bCnMKf"/>
+      <column name="member_ship_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6jCvcKsw6fCscKNw6bCl8Klw6bCnMKf"/>
+      <column name="scrap_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6bCisKlw6XCusKfw6bCl8Klw6bCnMKf"/>
+      <column name="durable_years" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6TCvcK/w6fClMKow6XCucK0w6nCmcKQ"/>
+      <column name="bus_type" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6jCvcKmw6jCvsKGw6fCscK7w6XCiMKrKMOlwoXCrMOkwrrCpMOowr3CpizDpcKFwqzDpcKKwqHDqMK9wqYsw6bCl8KFw6bCuMK4w6jCvcKmLMOmwpXCmcOnwrvCg8Oowr3CpizDpsKgwqHDqMK9wqYp"/>
+      <column name="operation_type" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6jCvcKmw6jCvsKGw6fClMKow6nCgMKUKMOowpDCpcOowr/CkMOowr3CpsOvwrzCjMOpwp3CnsOowpDCpcOowr/CkMOowr3Cpik="/>
+      <column name="operation_class" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6jCkMKlw6jCv8KQw6XCscKew6bCgMKnw6/CvMKIw6XCvcKTw6TCuMK6w6jCkMKlw6jCv8KQw6jCvcKmw6bCl8K2w6/CvMKMIMOmwq3CpMOlwq3Cl8Omwq7CtcOlwo/Cr8OpwoDCiSDDqMK3wq/Dp8K6wr/DqMK9wqYgw6/CvMKMw6fCj8Ktw6jCvcKmw6/CvMKMw6XCpMKHw6jCvcKmIMOvwrzCjMOkwrjCusOpwp3CnsOowpDCpcOowr/CkMOowr3CpsOmwpfCtsOmwq3CpMOlwq3Cl8Omwq7CtcOkwrjCusOnwqnCusOvwrzCiQ=="/>
+      <column name="company_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6jCkMKlw6jCv8KQw6XChcKsw6XCj8K4"/>
+      <column name="company_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6jCkMKlw6jCv8KQw6fCvMKWw6fCoMKB"/>
+      <column name="filiale_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6XCiMKGw6XChcKsw6XCj8K4"/>
+      <column name="filiale_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="line_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6fCusK/w6jCt8Kvw6XCkMKN"/>
+      <column name="line_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="operation_state" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6jCkMKlw6jCv8KQw6fCisK2w6bCgMKB"/>
+      <column name="operation_exit_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6nCgMKAw6XCh8K6w6jCkMKlw6jCv8KQw6bCl8Klw6bCnMKf"/>
+      <column name="repair_company_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6bCicK/w6TCv8Kuw6XCjsKC"/>
+      <column name="repair_company_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="maintain_company_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6TCv8Kdw6XChcK7w6bCicK/w6TCv8Kuw6XCjsKC"/>
+      <column name="maintain_compnay_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="adv_maintain_company_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6nCq8KYw6TCv8Kdw6TCv8Kuw6XCjsKCw6fCvMKWw6fCoMKB"/>
+      <column name="adv_maintain_company_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6nCq8KYw6TCv8Kdw6TCv8Kuw6XCjsKCw6XCkMKNw6fCp8Kw"/>
+      <column name="operation_certificate_no" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6jCkMKlw6jCv8KQw6jCr8KBw6XCj8K3"/>
+      <column name="operation_begin_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6jCkMKlw6jCv8KQw6jCr8KBw6XCkMKvw6fClMKow6bCl8Klw6bCnMKf"/>
+      <column name="operation_end_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91" remarks="w6jCkMKlw6jCv8KQw6jCr8KBw6XCpMKxw6bClcKIw6bCl8Klw6bCnMKf"/>
+      <column name="stop_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" remarks="w6XCgcKcw6jCvcKmw6fCscK7w6XCnsKLKMOlwpzCusOlwobChcOvwrzCjMOlwpzCusOlwqTClik="/>
+      <column name="position_info" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="w6XCgcKcw6jCvcKmw6TCvcKNw6fCvcKuw6TCv8Khw6bCgcKv"/>
+      <column name="energy_type" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6jCg8K9w6jCgMKXw6fCscK7w6XCnsKL"/>
+      <column name="rated_oil_wear" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6nCosKdw6XCrsKaw6bCssK5w6jCgMKX"/>
+      <column name="air_conditioning_brand" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6fCqcK6w6jCsMKDw6XCk8KBw6fCicKM"/>
+      <column name="engine_no" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6XCj8KRw6XCisKow6bCnMK6w6fCvMKWw6XCj8K3"/>
+      <column name="chassis_no" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="w6XCusKVw6fCm8KYw6fCvMKWw6XCj8K3"/>
+      <column name="bus_state" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6jCvcKmw6jCvsKGw6fCisK2w6bCgMKBKMOkwr/CncOnwq7CocOvwrzCjMOowr3CrMOnwrHCjcOvwrzCjMOmworCpcOlwrrCnyk="/>
+      <column name="last_update_time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" remarks="w6bCnMKAw6XCkMKOw6TCv8Kuw6bClMK5w6bCl8K2w6nCl8K0"/>
+      <column name="last_update_user" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6bCnMKAw6XCkMKOw6TCv8Kuw6bClMK5w6TCusK6"/>
+      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" remarks="w6XCiMKbw6XCu8K6w6bCl8K2w6nCl8K0"/>
+      <column name="create_uesr" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="w6XCiMKbw6XCu8K6w6TCusK6"/>
+      <column name="bus_source" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data_state" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" remarks="w6bClcKww6bCjcKuw6fCisK2w6bCgMKB"/>
+      <column name="main_company_code" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="6L2m57GN5b2S5bGe57yW56CB"/>
+      <column name="main_company_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="6L2m57GN5b2S5bGe5ZCN56ew"/>
+      <column name="parking_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12" remarks="5YGc6L2m5Zy657yW56CB"/>
+      <column name="parking_name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="5YGc6L2m5Zy65ZCN56ew"/>
+      <column name="distributor_contract_no" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="5YiG6ZSA5ZCI5ZCM5Y+3"/>
+      <column name="distributor_contract_name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="5YiG6ZSA5ZCI5ZCM5ZCN56ew"/>
+      <column name="original_model_code" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" remarks="5Y6f5Y6C6L2m5Z6L"/>
+      <column name="manufacturer" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12" remarks="55Sf5Lqn5Y6C5a62"/>
+      <column name="buy_date" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="6LSt6L2m5pel5pyf"/>
+      <column name="source" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" remarks="6L2m6L6G5p2l5rqQ"/>
+      <column name="price" sqlType="DECIMAL" precision="15" scale="6" nullable="true" jdbcType="3" remarks="5Lu35qC8"/>
+      <column name="base_ok" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cfg_ok" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dev_ok" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data_ok" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="frame_contract_no" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="5qGG5p625Y2P6K6u5Y+3"/>
+      <column name="send_disassemble_factory_date" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="6YCB5ouG6L2m5Y6C5pel5pyf"/>
+      <column name="disassemble_factory_ton" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12" remarks="5ouG6L2m5Y6C56Gu6K6k5ZCo5L2N"/>
+      <column name="scrapped_remark" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12" remarks="5oql5bqf6K+05piO"/>
+      <column name="is_transfer" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="attachment_id" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" remarks="6ZmE5Lu2SUQ="/>
+      <column name="distributor_contract_id" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12" remarks="5YiG6ZSA5ZCI5ZCMSUQ="/>
+      <column name="temp" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1" remarks="5Li05pe25a2X5q61"/>
+      <column name="new_company_name" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" remarks="5L2/55So5Y2V5L2N"/>
+      <column name="remark" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1" remarks="5L2/55So5aSH5rOo"/>
+      <column name="bus_produce_model" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="55Sf5Lqn55So6L2m6L2m5Z6L"/>
+      <column name="ownership" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" remarks="6L2m6L6G5b2S5bGe57G75Z6LMeS7o+ihqOS/neeuoe+8jDLku6PooajlpJblgJ8="/>
+      <column name="up_km" sqlType="DECIMAL" precision="10" scale="3" nullable="true" jdbcType="3" remarks="5LiK6KGM57q/6Lev6ZW/5bqm"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="login" schema="" catalog="baoxiu" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="loginName" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="loginName" unique="true" columns="loginName"/>
+    </table>
+    <table name="report" schema="" catalog="baoxiu" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="bus_line" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="bus_no" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="company" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="finish_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="finish_person" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="finish_remarks" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="host_version" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="repair_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="repair_describe" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="repair_person" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="report_content" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="report_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="report_level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="report_no" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="report_type" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dispatch_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="report_address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="recently" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="report_remark" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="report_closeReson" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observ_remark" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reson" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observ_remark1" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observ_remark2" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observ_remark3" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="id1" unique="false" columns="repair_date,report_date,state"/>
+    </table>
+    <table name="turn" schema="" catalog="baoxiu" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="repair_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="repair_describe" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="repair_person" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="report_no" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="turn_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="turn_person" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="turn_reson" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>
