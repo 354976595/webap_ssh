@@ -16,7 +16,8 @@
     <constant name="struts.convention.package.locators.basePackage" value="com.xjd.web.action.*"/>
     <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
     <!-- 设置页面的默认位置 -->
-    <constant name="struts.convention.result.path" value="/WEB-INF/content/" />
+    <!--<constant name="struts.convention.result.path" value="/WEB-INF/content/" />-->
+    <constant name="struts.convention.result.path" value="/" />
     <!-- 浏览器是否缓存静态内容 -->
     <constant name="struts.serve.static.browserCache" value="true" />
     <!--指定排除在搜索Action之外的包。默认值为org.hibernate.* ... -->
@@ -26,7 +27,7 @@
     <!-- 国际化设置 -->
     <constant name="struts.custom.i18n.resources" value="message" />
     <!-- 用于CRUD Action的parent package -->
-    <package name="crud" namespace="/" extends="convention-default">
+    <package name="crud-default" namespace="/" extends="convention-default">
         <!-- <package name="crud-default" namespace="/" extends="convention-default,json-default"> -->
         <!-- 基于paramsPrepareParamsStack, 增加store interceptor保证actionMessage在redirect后不会丢失 -->
         <interceptors>
@@ -52,7 +53,7 @@
         <default-interceptor-ref name="crudStack" />
 
         <global-results>
-            <result name="hahaha">repair/repair.jsp</result>
+            <result name="index">/index.jsp</result>
             <!--<result name="login">/index.jsp</result>-->
             <!-- 			<result name="errHandler" type="chain"> -->
             <!-- 				<param name="actionName">errorProcessor</param> -->

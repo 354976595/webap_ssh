@@ -13,7 +13,10 @@
 </head>
 <body>
 <h2>Hello World!</h2>
-<a href="login/login!login.action">login</a>
-<a href="regist/regist!regist.action">regist</a>
+<a href="login/login.action">login-execute</a>
+<a href="login/login!login.action">login-input</a>
+<a href="login/login!json2.action">login-json2</a>
+<a href="regist/regist!regist.action">regist-haha</a>
+<a href="regist/regist.action">regist-null</a>
 </body>
 </html>
