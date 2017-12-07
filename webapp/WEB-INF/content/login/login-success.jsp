@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2017/11/23
-  Time: 10:51
+  Date: 2017/12/7
+  Time: 17:38
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,13 +20,7 @@
     <title>Insert title here</title>
 </head>
 <body>
-repair
-<%=request.getAttribute("test")
-%>
-<%=session.getAttribute("test")
-%>
-<%=   application.getAttribute("test")%>
+success
 
-kuaijiejian :${requestScope.test}
 </body>
 </html>
