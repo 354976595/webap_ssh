@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public class BusDao {
     @Autowired
-    private HibernateTemplate hibernateTemplate;
+    private HibernateTemplate ht;
     public List<BusEntity> selectBus(){
         String hql="from BusEntity";
-     return    hibernateTemplate.find(hql);
+     return    ht.find(hql);
     }
 }
