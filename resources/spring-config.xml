@@ -44,7 +44,7 @@
         <!-- maxStatementsPerConnection定义了连接池内单个连接所拥有的最大缓存statements数。Default: 0 -->
         <property name="maxStatementsPerConnection" value="5"></property>
         <!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
-        <property name="maxIdleTime" value="1800"></property>
+        <property name="maxIdleTime" value="0"></property>
     </bean>
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"-->
           <!--destroy-method="close">-->
@@ -80,7 +80,7 @@
             </list>
         </property>
     </bean>
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+    <bean id="ht" autowire="byName" class="org.springframework.orm.hibernate3.HibernateTemplate">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
