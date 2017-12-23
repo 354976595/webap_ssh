@@ -3,15 +3,22 @@ package com.xjd.web.action.login;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.conversion.ObjectTypeDeterminer;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.xjd.web.dao.BusDao;
 import com.xjd.web.po.BusEntity;
 import com.xjd.web.util.ResponseToWeb;
+import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
+import org.apache.struts2.interceptor.TokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.interceptor.Interceptor;
 import java.sql.Date;
 import java.util.List;
 
@@ -19,13 +26,22 @@ import java.util.List;
  * Created by Administrator on 2017/11/21.
  */
 @ParentPackage(value = "json-default")
-@Results({@Result(type = "json", name = "2json",params = {}),@Result(name = "input",type = "json")})
-public class LoginAction implements Action {
+@Results({@Result(type = "json", name = "2json", params = {}), @Result(name = "input", type = "json"), @Result(name = "json3", location = "../repair/repair.jsp")})
+public class LoginAction  extends  ActionSupport  {
     @Autowired
     private BusDao busDao;
     private List<BusEntity> busDaos;
     private java.util.Date date;
     private String jsonMsg;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public List<BusEntity> getBusDaos() {
         return busDaos;
@@ -77,22 +93,33 @@ public class LoginAction implements Action {
         date = new java.util.Date();
         String json = gson.toJson(date.toString());
         ResponseToWeb.responseToWeb(json);
+        System.out.println("execute");
         return null;
     }
 
     public String json2() {
         //ObjectTypeDeterminer.class
-    jsonMsg="this is json string test";
+        jsonMsg = "this is json string test";
+        System.out.println("json2");
         return "2json";
+    }public  String success(){
+        return  Action.SUCCESS;
     }
-    @org.apache.struts2.convention.annotation.Action(value = "jsonAction",results = {@Result(name = "json3",location = "../repair/repair.jsp")})
-    public String json3(){
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setDateFormat("yyyy-MM-dd");
-        Gson gson = gsonBuilder.create();
-        date = new java.util.Date();
-        String json = gson.toJson(date);
-       //ResponseToWeb.responseToWeb(json);
+
+   // @org.apache.struts2.convention.annotation.Action(value = "pageAction", results = {@Result(name = "json3", location = "../repair/repair.jsp")})
+    //@Validations(requiredStrings = {@RequiredStringValidator(fieldName = "name", message = "name is required")})
+    public String json3() {
+        System.out.println("json3");
+        ActionContext.getContext().put("test","testValue");//获取context对象,put()相当于httpervletrequest的setAttribute
+        //ResponseToWeb.responseToWeb(json);
+        ActionContext.getContext().getSession().put("test","test session");
+        ActionContext.getContext().getApplication().put("test", "test applicationContext");
+        int [] a=new int[3];
+        a[5]=11;
         return "json3";
+    }
+    public  String exception(){
+        System.out.println("exception action");
+        return "exception";
     }
 }

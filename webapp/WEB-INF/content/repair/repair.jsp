@@ -21,5 +21,12 @@
 </head>
 <body>
 repair
+<%=request.getAttribute("test")
+%>
+<%=session.getAttribute("test")
+%>
+<%=   application.getAttribute("test")%>
+
+kuaijiejian :${requestScope.test}
 </body>
 </html>

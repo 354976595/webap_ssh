@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <!-- 设置页面的默认位置  -->
+        <constant name="struts.convention.result.path" value="/" />
+
+        <!-- 国际化设置 -->
+        <constant name="struts.custom.i18n.resources" value="globle" />
+        <constant name="struts.i18n.encoding" value="UTF-8"/>
+        <constant name="struts.convention.default.parent.package" value="crud-default" />
+        <constant name="struts.multipart.maxSize" value="99999999" />
+        <include file ="struts-user.xml"/>
+        <package name="crud-default" extends="user-package,json-default">
+        </package>
+</struts>

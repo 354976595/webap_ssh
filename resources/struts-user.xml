@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+        <constant name="struts.convention.package.locators" value="action" />
+        <constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+        <constant name="struts.multipart.parser" value="jakarta" />
+        <constant name="struts.multipart.maxsize" value="10000000" />
+
+        <package name="user-package" extends="convention-default">
+                <interceptors>
+                        <!-- <interceptor name="access" class="com.apep.user.base.interceptor.AccessInterceptor" /> -->
+                        <!-- 1.配置拦截器,下面将这个拦截器放到拦截器堆栈里 -->
+                        <interceptor name="authorization" class="com.apep.user.base.interceptor.AuthorizationInterceptor" />
+
+                        <!-- 2.定义我自己的拦截器堆栈 ，一个我新加的拦截方法，另外一个是系统原来的拦截方法-->
+                        <interceptor-stack name="myStack">
+                                <!-- <interceptor-ref name="access"></interceptor-ref> -->
+                                <!-- 验证身份的拦截器 -->
+                                <interceptor-ref name="authorization">
+                                        <!-- 指定不需要身份验证的action,用","隔开 -->
+                                        <param name="ignoreActions">
+                                                login
+                                        </param>
+                                </interceptor-ref>
+                                <interceptor-ref name="exception"/>
+                                <interceptor-ref name="alias"/>
+                                <interceptor-ref name="servletConfig"/>
+                                <interceptor-ref name="i18n"/>
+                                <interceptor-ref name="prepare"/>
+                                <interceptor-ref name="chain"/>
+                                <interceptor-ref name="scopedModelDriven"/>
+                                <interceptor-ref name="modelDriven"/>
+                                <interceptor-ref name="fileUpload"/>
+                                <interceptor-ref name="checkbox"/>
+                                <interceptor-ref name="multiselect"/>
+                                <interceptor-ref name="staticParams"/>
+                                <interceptor-ref name="actionMappingParams"/>
+                                <interceptor-ref name="params">
+                                        <param name="excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="conversionError"/>
+                                <interceptor-ref name="validation">
+                                        <param name="excludeMethods">input,back,cancel,browse</param>
+                                        <param name="validateAnnotatedMethodOnly">true</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="workflow">
+                                        <param name="excludeMethods">input,back,cancel,browse</param>
+                                </interceptor-ref>
+                                <interceptor-ref name="debugging"/>
+                        </interceptor-stack>
+                </interceptors>
+                <!-- 3.设置默认的拦截器引用，用我刚才定义的拦截器，替换系统默认的拦截器堆栈 -->
+                <default-interceptor-ref name="myStack"/>
+                <global-results>
+                        <!-- 4.设置全局Result -->
+                        <result name="login">/WEB-INF/content/index.jsp</result>
+                        <result name="none">/index.jsp</result>
+                        <result name="invalid.token">/index</result>
+                        <result name="exception">/exception.jsp</result>
+                </global-results>
+                <global-exception-mappings>
+                        <exception-mapping exception="java.lang.Exception" result="exception" />
+                </global-exception-mappings>
+        </package>
+</struts>
