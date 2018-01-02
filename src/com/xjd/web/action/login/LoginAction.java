@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.xjd.web.dao.BusDao;
 import com.xjd.web.po.BusEntity;
 import com.xjd.web.util.ResponseToWeb;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -19,6 +20,13 @@ import org.apache.struts2.interceptor.TokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.interceptor.Interceptor;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.List;
 
@@ -70,9 +78,9 @@ public class LoginAction  extends  ActionSupport  {
     public String login() {
         System.out.println(1231);
         busDaos = busDao.selectBus();
-        for (int i = 0; i < busDaos.size(); i++) {
-            System.out.println(busDaos.get(i).getBusLine());
-        }
+        HttpSession session= (HttpSession) ActionContext.getContext().getSession();
+        Object obj=session.getAttribute("loginUser");
+        System.out.println(obj.toString());
         return "input";
 //        return "2json";
     }
@@ -89,11 +97,28 @@ public class LoginAction  extends  ActionSupport  {
     public String execute() throws Exception {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("yyyy-MM-dd");
+        HttpSession session = ServletActionContext.getRequest().getSession();
+        session.setAttribute("loginUser", "hahahah");
         Gson gson = gsonBuilder.create();
         date = new java.util.Date();
         String json = gson.toJson(date.toString());
-        ResponseToWeb.responseToWeb(json);
-        System.out.println("execute");
+       // ResponseToWeb.responseToWeb(json);
+       // System.out.println("execute");
+        HttpServletResponse response = ServletActionContext.getResponse();
+        ServletOutputStream out = response.getOutputStream();
+        response.setContentType("image/jpeg");
+        byte[] b=new byte[8192];
+        int count=0;
+        System.out.println(ServletActionContext.getServletContext().getRealPath("/"));
+        FileInputStream fileInputStream=new FileInputStream(new File(ServletActionContext.getServletContext().getRealPath("/")+"\\image\\1.png"));
+      while (true){
+          count=fileInputStream.read(b);
+          if(count<0){
+              break;
+          }
+        //  out.write(b,0,count);
+          out.write(b);
+      }
         return null;
     }
 
@@ -110,7 +135,7 @@ public class LoginAction  extends  ActionSupport  {
     //@Validations(requiredStrings = {@RequiredStringValidator(fieldName = "name", message = "name is required")})
     public String json3() {
         System.out.println("json3");
-        ActionContext.getContext().put("test","testValue");//»ñÈ¡context¶ÔÏó,put()Ïàµ±ÓÚhttpervletrequestµÄsetAttribute
+        ActionContext.getContext().put("test","testValue");//ï¿½ï¿½È¡contextï¿½ï¿½ï¿½ï¿½,put()ï¿½àµ±ï¿½ï¿½httpervletrequestï¿½ï¿½setAttribute
         //ResponseToWeb.responseToWeb(json);
         ActionContext.getContext().getSession().put("test","test session");
         ActionContext.getContext().getApplication().put("test", "test applicationContext");

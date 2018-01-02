@@ -34,13 +34,7 @@ public class BusDao {
                 criteria.setReadOnly(false);
                 criteria.setFlushMode(FlushMode.COMMIT);
                 List list = criteria.list();
-                if(list.size()>10){
-                    try {
-                        throw new Exception("too  big");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+
                 return list;
             }
         });

@@ -115,4 +115,5 @@
     <!-- 定时任务 -->
 
     <!-- <import resource="task.xml" /> -->
+    <import resource="task.xml" />
 </beans>

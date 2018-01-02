@@ -2,6 +2,9 @@ package com.xjd.web.action.bus;
 
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.xjd.web.dao.BusDao;
 import com.xjd.web.po.BusEntity;
 import com.xjd.web.service.BusService;
@@ -57,7 +60,7 @@ public class BusAction implements Action {
         list=busService.findByExample(busEntity);
         java.util.Map<Integer, BusEntity> map= new HashMap<Integer, BusEntity>();
         for (BusEntity entity : list) {
-            System.out.println(entity.getBusNo());
+            //System.out.println(entity.getBusNo());
         }
         for (int i = 0; i < list.size(); i++) {
             map.put(i,list.get(i));
@@ -68,13 +71,21 @@ public class BusAction implements Action {
         try{
              list1= busService.select(busEntity);
         }catch (Exception e){
-            System.out.println(e.toString());
+           // System.out.println(e.toString());
         }
         for (BusEntity entity : list1) {
-            System.out.println("cre"+entity.getBusLine());
+            //System.out.println("cre"+entity.getBusLine());
         }
        // responseToWeb(js);
         return LOGIN;
+    }
+   @Validations(requiredStrings = {
+           @RequiredStringValidator(fieldName = "BusEntity.busNo",message = "dasda")
+   })
+    public  String testJquery(){
+        System.out.println(123);
+        return "success";
+
     }
 
     public static void responseToWeb(String js) throws IOException {
