@@ -5,43 +5,44 @@ import com.google.gson.GsonBuilder;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.conversion.ObjectTypeDeterminer;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.Validations;
 import com.xjd.web.dao.BusDao;
-import com.xjd.web.po.BusEntity;
-import com.xjd.web.util.ResponseToWeb;
+import com.xjd.web.po.User;
+import com.xjd.web.service.UserService;
 import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
-import org.apache.struts2.interceptor.TokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.interceptor.Interceptor;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.PrintWriter;
-import java.sql.Date;
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/11/21.
  */
 @ParentPackage(value = "json-default")
-@Results({@Result(type = "json", name = "2json", params = {}), @Result(name = "input", type = "json"), @Result(name = "json3", location = "../repair/repair.jsp")})
+@Results({@Result(type = "json", name = "2json", params = {}), @Result(name = "json3", location = "../repair/repair.jsp")})
 public class LoginAction  extends  ActionSupport  {
     @Autowired
     private BusDao busDao;
-    private List<BusEntity> busDaos;
+    @Autowired
+    private UserService userService;
+    private User user;
     private java.util.Date date;
     private String jsonMsg;
     private String name;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getName() {
         return name;
@@ -50,15 +51,6 @@ public class LoginAction  extends  ActionSupport  {
     public void setName(String name) {
         this.name = name;
     }
-
-    public List<BusEntity> getBusDaos() {
-        return busDaos;
-    }
-
-    public void setBusDaos(List<BusEntity> busDaos) {
-        this.busDaos = busDaos;
-    }
-
     public String getJsonMsg() {
         return jsonMsg;
     }
@@ -75,14 +67,21 @@ public class LoginAction  extends  ActionSupport  {
         this.date = date;
     }
 
+    /**
+     * to login jsp
+     * @return
+     */
     public String login() {
-        System.out.println(1231);
-        busDaos = busDao.selectBus();
-        HttpSession session= (HttpSession) ActionContext.getContext().getSession();
-        Object obj=session.getAttribute("loginUser");
-        System.out.println(obj.toString());
         return "input";
-//        return "2json";
+    }
+
+    /**
+     * IS LOGIN IN?
+     * @return
+     */
+    public String signIn(){
+        String result=userService.signIn(user);
+        return result;
     }
 
     /**

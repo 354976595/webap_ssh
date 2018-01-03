@@ -6,7 +6,7 @@
 
 <struts>
     <!-- 设置页面的默认位置  -->
-    <constant name="struts.convention.result.path" value="/WEB-INF/content"/>
+    <constant name="struts.convention.result.path" value="/"/>
 
     <!-- 国际化设置 -->
     <constant name="struts.custom.i18n.resources" value="globle"/>
