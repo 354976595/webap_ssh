@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2017/11/21
-  Time: 11:25
+  Date: 2017/12/25
+  Time: 11:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,6 +20,6 @@
     <title>Insert title here</title>
 </head>
 <body>
-login-input
+bus.jsp
 </body>
 </html>

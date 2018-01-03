@@ -1,10 +1,15 @@
 package com.xjd.web.dao;
 
-import com.xjd.web.po.BusEntity;
+import org.hibernate.Criteria;
+import org.hibernate.FlushMode;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,9 +18,5 @@ import java.util.List;
 @Repository
 public class BusDao {
     @Autowired
-    private HibernateTemplate ht;
-    public List<BusEntity> selectBus(){
-        String hql="from BusEntity";
-     return    ht.find(hql);
-    }
+    private HibernateTemplate hibernateTemplate;
 }
