@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  */
 public class TaskTest {
     @Scheduled(cron = "0/5 * * * * ?")
-    public void test(){
+    public  void  test(){
         System.out.println("定时任务进行中.."+System.currentTimeMillis());
     }
 }
