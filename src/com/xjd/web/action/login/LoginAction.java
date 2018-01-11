@@ -79,9 +79,11 @@ public class LoginAction  extends  ActionSupport  {
      * IS LOGIN IN?
      * @return
      */
-    public String signIn(){
-        String result=userService.signIn(user);
-        return result;
+    public  String signIn(){
+        synchronized (this){
+            String result=userService.signIn(user);
+            return result;
+        }
     }
 
     /**
