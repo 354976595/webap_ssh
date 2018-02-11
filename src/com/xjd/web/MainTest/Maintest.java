@@ -7,6 +7,8 @@ import com.xjd.web.CustomerException.SizeTooBigException;
  */
 public class Maintest {
     public static void main(String[] args) {
+        int i1=0;
+        System.out.println(i1++);
         String ar[] = new String[5];
         for (int i = 0; i < ar.length; i++) {
             ar[i] = i + "";

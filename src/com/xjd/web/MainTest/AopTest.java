@@ -1,6 +1,5 @@
 package com.xjd.web.MainTest;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -9,7 +8,7 @@ import java.lang.reflect.Method;
  */
 public  class AopTest {
     public static void main(String[] args) {
-        invokeForClass("com.xjd.web.MainTest.TaskTest","test");
+        invokeForClass("com.xjd.web.MainTest.TaskTest", "com/xjd/web/juintTestPackage");
     }
 
     /**
@@ -50,7 +49,7 @@ public  class AopTest {
     }
      public static class Test{
      public  void out(){
-         System.out.println("test   print");
+         System.out.println("com.xjd.web.juintTestPackage   print");
      }
     }
 }

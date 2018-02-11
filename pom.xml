@@ -126,7 +126,11 @@
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.ver}</version>
     </dependency>
-
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.1</version>
+    </dependency>
     <dependency>
       <groupId>commons-fileupload</groupId>
       <artifactId>commons-fileupload</artifactId>
@@ -176,6 +180,66 @@
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
       <version>6.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.http.cometd</artifactId>
+      <version>2.3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>2.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>HTTPClient</groupId>
+      <artifactId>HTTPClient</artifactId>
+      <version>0.3-3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcomponents-client</artifactId>
+      <version>4.3.3</version>
+    </dependency>
+    <dependency>
+
+      <groupId>javax</groupId>
+
+      <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+
+      <version>6.0</version>
+
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>3.6.8.Final</version>
     </dependency>
   </dependencies>
   <build>

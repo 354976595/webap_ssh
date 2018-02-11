@@ -21,11 +21,11 @@
 </head>
 <body>
 repair
-<%=request.getAttribute("test")
+<%=request.getAttribute("com/xjd/web/juintTestPackage")
 %>
-<%=session.getAttribute("test")
+<%=session.getAttribute("com/xjd/web/juintTestPackage")
 %>
-<%=   application.getAttribute("test")%>
+<%=   application.getAttribute("com/xjd/web/juintTestPackage")%>
 
 kuaijiejian :${requestScope.test}
 </body>

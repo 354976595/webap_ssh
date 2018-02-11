@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 /**
  * Created by Administrator on 2017/11/23.
  */
+@Deprecated
+
 public class ResponseToWeb {
     public static void responseToWeb(String str) {
         HttpServletResponse httpServletResponse = ServletActionContext.getResponse();

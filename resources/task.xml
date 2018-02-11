@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/task
          http://www.springframework.org/schema/task/spring-task.xsd
        ">
-       <bean id="haha" class="com.xjd.web.MainTest.TaskTest" />
+       <!--<bean id="haha" class="com.xjd.web.MainTest.TaskTest" />-->
        <task:scheduler id="scheduler" pool-size="10" />
        <task:annotation-driven />
 </beans>

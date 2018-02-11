@@ -26,5 +26,6 @@
 <s:submit label="tijiao" />
 </s:form>
 <a href="login/login!exception.action">login-exception</a>
+<img src="file://D:/jpy/签到最终版" alt="test" />
 </body>
 </html>

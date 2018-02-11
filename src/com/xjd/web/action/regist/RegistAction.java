@@ -2,15 +2,23 @@ package com.xjd.web.action.regist;
 
 
 import com.opensymphony.xwork2.Action;
+import com.xjd.web.dao.NewBusDao;
+import com.xjd.web.po.User;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/11/22.
  */
-@Results({@Result(name ="haha",location = "../repair/repair.jsp")})
-
+@Results({@Result(name ="haha",location = "../repair/repair.jsp"),@Result(name = "real-haha",location = "regist-haha.jsp")})
+@Controller
 public class RegistAction implements Action {
+    @Autowired
+    private NewBusDao newBusDao;
     public String regist(){
         System.out.println("haha");
         return "haha";
@@ -28,5 +36,16 @@ public class RegistAction implements Action {
     public String execute() throws Exception {
         System.out.println("default");
         return "index";
+    }
+    public String testHibernate(){
+        User user=new User();
+        user.setName("xjd");
+        List<User> list2= newBusDao.findList(user);
+        for (User user2 :list2) {
+            System.out.println(user2.getName()+user2.getPassword()+user.getId());
+        }
+       // busDao.findList(user);
+        return "real-haha";
+
     }
 }
