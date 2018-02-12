@@ -13,18 +13,19 @@
 
     <package name="crud-default" extends="convention-default,json-default">
         <interceptors>
+            <interceptor name="myExce" class="com.xjd.web.interceptor.ExceptionIntercepter" />
             <!-- <interceptor name="access" class="com.apep.user.base.interceptor.AccessInterceptor" /> -->
             <!-- 1.配置拦截器,下面将这个拦截器放到拦截器堆栈里 -->
             <interceptor name="authorization" class="com.xjd.web.interceptor.LoginInterceptor"/>
             <!-- 2.定义我自己的拦截器堆栈 ，一个我新加的拦截方法，另外一个是系统原来的拦截方法-->
             <interceptor-stack name="myStack">
+                <interceptor-ref name="myExce" />
                 <interceptor-ref name="paramsPrepareParamsStack" />
                 <!-- <interceptor-ref name="access"></interceptor-ref> -->
                 <!-- 验证身份的拦截器 -->
                 <interceptor-ref name="authorization">
                     <!-- 指定不需要身份验证的action,用","隔开 -->
                     <param name="ignoreActions">login</param>
-
                 </interceptor-ref>
                 <interceptor-ref name="store">
                     <param name="operationMode">AUTOMATIC</param>

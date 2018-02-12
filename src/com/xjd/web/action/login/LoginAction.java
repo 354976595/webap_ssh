@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/11/21.
@@ -165,13 +166,13 @@ public class LoginAction extends ActionSupport {
     }
 
     // @org.apache.struts2.convention.annotation.Action(value = "pageAction", results = {@Result(name = "json3", location = "../repair/repair.jsp")})
-        //@Validations(requiredStrings = {@RequiredStringValidator(fieldName = "name", message = "name is required")})
-        public String json3() {
-            System.out.println("json3");
-            ActionContext.getContext().put("com/xjd/web/juintTestPackage", "testValue");//��ȡcontext����,put()�൱��httpervletrequest��setAttribute
-            //ResponseToWeb.responseToWeb(json);
-            ActionContext.getContext().getSession().put("com/xjd/web/juintTestPackage", "com.xjd.web.juintTestPackage session");
-            ActionContext.getContext().getApplication().put("com/xjd/web/juintTestPackage", "com.xjd.web.juintTestPackage applicationContext");
+    //@Validations(requiredStrings = {@RequiredStringValidator(fieldName = "name", message = "name is required")})
+    public String json3() {
+        System.out.println("json3");
+        ActionContext.getContext().put("com/xjd/web/juintTestPackage", "testValue");//��ȡcontext����,put()�൱��httpervletrequest��setAttribute
+        //ResponseToWeb.responseToWeb(json);
+        ActionContext.getContext().getSession().put("com/xjd/web/juintTestPackage", "com.xjd.web.juintTestPackage session");
+        ActionContext.getContext().getApplication().put("com/xjd/web/juintTestPackage", "com.xjd.web.juintTestPackage applicationContext");
         int[] a = new int[3];
         a[5] = 11;
         return "json3";
@@ -181,6 +182,16 @@ public class LoginAction extends ActionSupport {
         System.out.println("exception action");
         return "exception";
         //   map.put("lineCode", "000800");
+    }
+
+    public String heihie() {
+        List<Object[]> ol = userDao.findUser();
+        for (Object[] objects : ol) {
+            System.out.println(objects.length);
+            System.out.println(objects[3]);
+        }
+        return null;
+
     }
 
     public String test() {

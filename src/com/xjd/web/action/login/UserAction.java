@@ -8,6 +8,8 @@ import com.xjd.web.util.CodeUtil;
 import com.xjd.web.util.ResponseToWeb;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2018/2/9.
  */
@@ -33,6 +35,16 @@ public class UserAction  implements Action{
         userDao.addUser(user);
         ResponseToWeb.responseToWeb("save User"+CodeUtil.Base64encode("name xujiadong"));
         return null;
+    }
+    public String testIntercepter() {
+
+        List<Object[]> ol = userDao.findUser();
+        for (Object[] objects : ol) {
+            System.out.println(objects.length);
+            System.out.println(objects[3]);
+        }
+        return null;
+
     }
 
 }

@@ -85,15 +85,15 @@
     </bean>
 
 
-    <!-- 配置mybits -->
-    <!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> -->
-    <!-- <property name="dataSource" ref="dataSource"/> -->
-    <!-- <property name="mapperLocations" value="classpath*:com/apep/**/mapper/**/*Mapper.xml"/> -->
-    <!-- </bean> -->
+     <!--配置mybits-->
+     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+     <property name="dataSource" ref="dataSource"/>
+     <property name="mapperLocations" value="classpath*:com/xjd/web/mapper/**/*Mapper.xml"/>
+     </bean>
 
-    <!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
-    <!-- <property name="basePackage" value="com/apep/**/mapper"/> -->
-    <!-- </bean> -->
+     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+     <property name="basePackage" value="com/xjd/web/mapper/*Mapper"/>
+     </bean>
 
     <!-- 配置redis连接 -->
     <!-- <bean id="redisConfig" class="redis.clients.jedis.JedisPoolConfig"> -->
